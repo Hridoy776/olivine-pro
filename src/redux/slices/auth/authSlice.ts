@@ -23,7 +23,7 @@ export const createUser = createAsyncThunk(
     }: {
         email: string;
         password: string;
-    }): Promise<string | null> => {
+    }) => {
         const data = await createUserWithEmailAndPassword(auth, email, password);
         return data.user.email;
     }

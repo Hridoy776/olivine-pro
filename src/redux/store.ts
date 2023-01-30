@@ -4,7 +4,6 @@ import counterSlice from "./slices/counterSlice";
 
 const store = configureStore({
   reducer: {
-    counter: counterSlice,
     authSlice: authSlice,
   },
 });
