@@ -22,7 +22,7 @@ const Register = () => {
   };
 
   return (
-    <div className="flex flex-col min-h-screen my-auto justify-center items-center ">
+    <div className="flex flex-col min-h-screen my-auto justify-center items-center">
       <p className="text-primary text-center uppercase text-xl font-bold tracking-[.3em]">
         sign up
       </p>

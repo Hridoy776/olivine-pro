@@ -3,6 +3,8 @@ import { Inter } from "@next/font/google";
 import Navbar from "@/components/navbar/navbar";
 import Slider from "@/components/home-page/slider";
 import History from "@/components/home-page/History";
+import Food from "@/components/home-page/Food";
+
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -27,7 +29,7 @@ export default function Home() {
           <h3 className="text-primary text-center text-4xl uppercase tracking-widest mb-24">
             Foods
           </h3>
-          {/* <Food/> */}
+          <Food/>
         </section>
         <section>{/* <Experience/> */}</section>
         <section>{/* <Dines/> */}</section>
