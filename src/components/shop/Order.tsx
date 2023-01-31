@@ -1,4 +1,7 @@
-import { useCancelOrderMutation, useGetOrderQuery } from "@/redux/slices/api/apiSlice";
+import {
+  useCancelOrderMutation,
+  useGetOrderQuery,
+} from "@/redux/slices/api/apiSlice";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import React from "react";
@@ -7,17 +10,17 @@ type Props = {};
 
 const Order = (props: Props) => {
   const { data } = useGetOrderQuery();
-  const [cancelOrder,response]=useCancelOrderMutation()
+  const [cancelOrder, response] = useCancelOrderMutation();
   console.log(response);
   const route = useRouter();
 
-  // const handleDetails = (id) => {
-  //     route.push(`/food/${id}`)
-  // }
+  const handleDetails = (id: string) => {
+    route.push(`/shop/${id}`);
+  };
 
-  const handleDelete = (id:string) => {
-      cancelOrder(id)
-  }
+  const handleDelete = (id: string) => {
+    cancelOrder(id);
+  };
 
   return (
     <table className="text-white order__table   mx-auto">
@@ -36,13 +39,13 @@ const Order = (props: Props) => {
           return (
             <tr key={order._id}>
               <td>
-                <button onClick={()=>handleDelete(order._id)}  className="">
+                <button onClick={() => handleDelete(order._id)} className="">
                   x
                 </button>
               </td>
               <td className="p-4">
                 <Image
-                //   onClick={() => handleDetails(order._id)}
+                  onClick={() => handleDetails(order._id)}
                   width={100}
                   height={100}
                   className="mx-auto"

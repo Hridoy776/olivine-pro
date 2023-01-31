@@ -1,5 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import build from "next/dist/build";
+
+// @enternal import //
 import type { Food } from "../../../types/food";
 
 // Define a service using a base URL and expected endpoints
@@ -13,7 +14,7 @@ export const foodApi = createApi({
     getFoods: builder.query<Food[], string>({
       query: () => "foods",
     }),
-    getFoodById: builder.query<Food, string>({
+    getFoodById: builder.query<Food, object>({
       query: (id): string => `foods/${id}`,
     }),
     addToCart: builder.mutation<Food, string>({
@@ -24,14 +25,17 @@ export const foodApi = createApi({
     }),
     getOrder: builder.query<Food[], void>({
       query: () => "order",
-      providesTags: ['Order'],
+      providesTags: ["Order"],
+    }),
+    getOrderById: builder.query<Food, string>({
+      query: (id): string => `order/${id}`,
     }),
     cancelOrder: builder.mutation<Food, string>({
       query: (id) => ({
         url: `order/${id}`,
         method: "DELETE",
       }),
-      invalidatesTags:['Order']
+      invalidatesTags: ["Order"],
     }),
   }),
 });
@@ -43,4 +47,5 @@ export const {
   useAddToCartMutation,
   useGetOrderQuery,
   useCancelOrderMutation,
+  useGetOrderByIdQuery
 } = foodApi;
