@@ -16,7 +16,7 @@ const Food = (props: Props) => {
   };
 
   return (
-    <div className=" w-fit  my-5 mx-auto grid grid-cols-1 lg:grid-cols-4 gap-6">
+    <div className="w-fit  py-5 mx-auto grid grid-cols-1 lg:grid-cols-4 gap-6">
       {data?.map((food, index) => (
         <div key={index}>
           <div
