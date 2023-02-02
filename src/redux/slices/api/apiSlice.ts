@@ -22,6 +22,7 @@ export const foodApi = createApi({
         url: `order/${payload}`,
         method: "POST",
       }),
+      invalidatesTags: ["Order"],
     }),
     getOrder: builder.query<Food[], void>({
       query: () => "order",
@@ -47,5 +48,5 @@ export const {
   useAddToCartMutation,
   useGetOrderQuery,
   useCancelOrderMutation,
-  useGetOrderByIdQuery
+  useGetOrderByIdQuery,
 } = foodApi;
