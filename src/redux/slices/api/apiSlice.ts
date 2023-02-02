@@ -7,7 +7,7 @@ import type { Food } from "../../../types/food";
 export const foodApi = createApi({
   reducerPath: "foodApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: "https://olivine-resturent.onrender.com/",
+    baseUrl: process.env.NEXT_PUBLIC_API_URL,
   }),
   tagTypes: ["Order"],
   endpoints: (builder) => ({

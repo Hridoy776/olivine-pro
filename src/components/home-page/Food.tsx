@@ -10,7 +10,7 @@ const Food = (props: Props) => {
   const [onHover, setOnHover] = useState(-1);
   const { data, isFetching, isLoading, isSuccess } = useGetFoodsQuery("");
   const [addToCart, response] = useAddToCartMutation();
-  console.log(response);
+  console.log(data);
   const hideButton = (index: number) => {
     return `mb-4 ${onHover === index ? " " : "hidden"}   `;
   };
