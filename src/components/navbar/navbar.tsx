@@ -29,36 +29,48 @@ const Navbar = (props: Props) => {
     paddingTop: "10px",
   };
 
-  function debounce(func: any, wait: any, immediate?: any) {
-    let timeout: any;
-    return function () {
-      var context = this,
-        args = arguments;
+  function debounce<T extends (...args: any[]) => void>({
+    func,
+    wait,
+    immediate,
+  }: {
+    func: T;
+    wait: number;
+    immediate?: boolean;
+  }): <U>(this: U, ...args: Parameters<T>) => void {
+    let timeout: ReturnType<typeof setTimeout> | null;
+    return function <U>(this: U, ...args: Parameters<typeof func>) {
+      var context = this;
       var later = function () {
         timeout = null;
         if (!immediate) func.apply(context, args);
       };
       var callNow = immediate && !timeout;
-      clearTimeout(timeout);
+      if (typeof timeout === "number") {
+        clearTimeout(timeout);
+      }
       timeout = setTimeout(later, wait);
       if (callNow) func.apply(context, args);
     };
   }
 
-  const handleScroll = debounce(() => {
-    // find current scroll position
-    const currentScrollPos = window.pageYOffset;
+  const handleScroll = debounce({
+    func: () => {
+      // find current scroll position
+      const currentScrollPos = window.pageYOffset;
 
-    // set state based on location info (explained in more detail below)
-    setVisible(
-      (prevScrollPos > currentScrollPos &&
-        prevScrollPos - currentScrollPos > 70) ||
-        currentScrollPos < 10
-    );
+      // set state based on location info (explained in more detail below)
+      setVisible(
+        (prevScrollPos > currentScrollPos &&
+          prevScrollPos - currentScrollPos > 70) ||
+          currentScrollPos < 10
+      );
 
-    // set state to new scroll position
-    setPrevScrollPos(currentScrollPos);
-  }, 100);
+      // set state to new scroll position
+      setPrevScrollPos(currentScrollPos);
+    },
+    wait: 100,
+  });
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
 
