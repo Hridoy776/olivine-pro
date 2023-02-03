@@ -1,9 +1,9 @@
 import React from "react";
+import Image from "next/image";
 
 // @ internal import //
 import img1 from "../../assets/images/zachariah-hagy-MCKrW7fB7Pw-unsplash.jpg";
 import img2 from "../../assets/images/emiliano-vittoriosi-OFismyezPnY-unsplash.jpg";
-import Image from "next/image";
 
 type Props = {};
 

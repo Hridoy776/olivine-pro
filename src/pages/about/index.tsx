@@ -4,8 +4,11 @@ import Head from "next/head";
 
 //  @ internal import //
 import Cartbanner from "@/components/common/Cartbanner";
-import Experience from "@/components/home-page/Experience";
 import Information from "@/components/about/Information";
+import StartInfo from "@/components/about/Start-info";
+import SecondaryBanner from "@/components/about/Secondary-banner";
+import SignatureFood from "@/components/about/Signature-food";
+import Dines from "@/components/home-page/Dines";
 
 type Props = {};
 
@@ -21,7 +24,19 @@ const index = (props: Props) => {
           <main>
             <Cartbanner>about</Cartbanner>
             <section>
-              <Information/>
+              <Information />
+            </section>
+            <section>
+              <StartInfo />
+            </section>
+            <section>
+              <SecondaryBanner />
+            </section>
+            <section>
+              <SignatureFood />
+            </section>
+            <section>
+            <Dines />
             </section>
           </main>
         </Layout>
