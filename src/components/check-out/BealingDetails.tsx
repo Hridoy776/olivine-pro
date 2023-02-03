@@ -1,11 +1,23 @@
-import React, { FormHTMLAttributes } from "react";
+import React, {
+  DetailedHTMLProps,
+  FormHTMLAttributes,
+  InputHTMLAttributes,
+  useState,
+} from "react";
 
 type Props = {};
 
 const BealingDetails = (props: Props) => {
+  const [data, setData] = useState({});
+  const updateData = (Event: React.FormEvent<HTMLInputElement>) => {
+    setData({
+      ...data,
+      [Event.currentTarget.name]: Event.currentTarget.value,
+    });
+  };
   const handleBeal = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log(event.currentTarget);
+    console.log(data);
   };
   return (
     <div>
@@ -19,8 +31,9 @@ const BealingDetails = (props: Props) => {
               </label>
               <input
                 type="name"
+                onChange={updateData}
                 name="first_name"
-                className="  focus:outline-none block w-full py-2 text-base uppercase bg-black "
+                className="  focus:outline-none block w-full py-2 text-base bg-black "
               />
             </div>
             <div className="form-control mb-4 border-[#5c5c5c] border-b">
@@ -29,9 +42,9 @@ const BealingDetails = (props: Props) => {
               </label>
               <input
                 type="text"
-                placeholder=""
+                onChange={updateData}
                 name="last_name"
-                className="focus:outline-none block w-full py-2 text-base uppercase bg-black "
+                className="focus:outline-none block w-full py-2 text-base bg-black "
                 required
               />
             </div>
@@ -42,9 +55,9 @@ const BealingDetails = (props: Props) => {
             </label>
             <input
               type="text"
-              placeholder=""
-              name="fname"
-              className="focus:outline-none block w-full py-2 text-base uppercase bg-black "
+              onChange={updateData}
+              name="company"
+              className="focus:outline-none block w-full py-2 text-base bg-black "
               required
             />
           </div>
@@ -54,9 +67,9 @@ const BealingDetails = (props: Props) => {
             </label>
             <input
               type="text"
-              placeholder="country"
-              name="fname"
-              className="focus:outline-none block w-full py-2 text-base uppercase bg-black "
+              onChange={updateData}
+              name="country"
+              className="focus:outline-none block w-full py-2 text-base bg-black "
               required
             />
           </div>
@@ -66,9 +79,9 @@ const BealingDetails = (props: Props) => {
             </label>
             <input
               type="text"
-              placeholder=""
-              name="fname"
-              className="focus:outline-none block w-full py-2 text-base uppercase bg-black "
+              onChange={updateData}
+              name="address"
+              className="focus:outline-none block w-full py-2 text-base bg-black "
               required
             />
           </div>
@@ -78,9 +91,9 @@ const BealingDetails = (props: Props) => {
             </label>
             <input
               type="text"
-              placeholder=""
-              name="fname"
-              className="focus:outline-none block w-full py-2 text-base uppercase bg-black "
+              onChange={updateData}
+              name="state"
+              className="focus:outline-none block w-full py-2 text-base bg-black "
               required
             />
           </div>
@@ -89,10 +102,10 @@ const BealingDetails = (props: Props) => {
               <span className=" text-[20px] ">postcode</span>
             </label>
             <input
-              type="text"
-              placeholder=""
-              name="fname"
-              className="focus:outline-none block w-full py-2 text-base uppercase bg-black "
+              type="number"
+              onChange={updateData}
+              name="post_code"
+              className="focus:outline-none block w-full py-2 text-base bg-black "
               required
             />
           </div>
@@ -101,10 +114,10 @@ const BealingDetails = (props: Props) => {
               <span className=" text-[20px] ">phone</span>
             </label>
             <input
-              type="text"
-              placeholder=""
-              name="fname"
-              className="focus:outline-none block w-full py-2 text-base uppercase bg-black "
+              type="number"
+              onChange={updateData}
+              name="phone"
+              className="focus:outline-none block w-full py-2 text-base bg-black "
               required
             />
           </div>
@@ -113,10 +126,10 @@ const BealingDetails = (props: Props) => {
               <span className=" text-[20px] ">email</span>
             </label>
             <input
-              type="text"
-              placeholder=""
-              name="fname"
-              className="focus:outline-none block w-full py-2 text-base uppercase bg-black  "
+              type="email"
+              onChange={updateData}
+              name="email"
+              className="focus:outline-none block w-full py-2 text-base bg-black  "
               required
             />
           </div>

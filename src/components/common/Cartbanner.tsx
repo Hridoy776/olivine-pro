@@ -1,8 +1,10 @@
 import React from "react";
 
-type Props = {};
+type Props = {
+  children:React.ReactNode;
+};
 
-const Cartbanner = (props: Props) => {
+const Cartbanner = ({children}: Props) => {
   return (
     <div
       style={{
@@ -14,7 +16,7 @@ const Cartbanner = (props: Props) => {
       <div className="hero-overlay "></div>
       <div className="hero-content text-center text-neutral-content">
         <div className="max-w-md">
-          <h1 className="mb-5 text-6xl font-medium">Cart</h1>
+          <h1 className="mb-5 text-6xl font-medium capitalize">{children}</h1>
         </div>
       </div>
     </div>
