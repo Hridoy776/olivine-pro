@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import React, {useState } from "react";
+import React, { useState } from "react";
 
 // @ internal import //
 import Cartbanner from "@/components/common/Cartbanner";
@@ -38,7 +38,7 @@ const ProductDetails = (props: Props) => {
     <>
       <Navbar />
       <section className="">
-        <Cartbanner />
+        <Cartbanner>shop</Cartbanner>
       </section>
       <section className="bg-black pt-12">
         <div className="lg:w-[90%] mx-auto">

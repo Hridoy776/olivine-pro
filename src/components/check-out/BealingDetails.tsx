@@ -33,7 +33,7 @@ const BealingDetails = (props: Props) => {
                 type="name"
                 onChange={updateData}
                 name="first_name"
-                className="  focus:outline-none block w-full py-2 text-base bg-black "
+                className="focus:outline-none block w-full py-2 text-base bg-black"
               />
             </div>
             <div className="form-control mb-4 border-[#5c5c5c] border-b">

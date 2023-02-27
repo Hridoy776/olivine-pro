@@ -12,7 +12,7 @@ const CheckOut = (props: Props) => {
     <div className="bg-black text-white">
       <Navbar />
       <section className=" ">
-        <Cartbanner />
+        <Cartbanner>CheckOut</Cartbanner>
         <div className="w-[1200px] mx-auto grid grid-cols-2 gap-4 justify-center ">
           <BealingDetails />
           <OrderProceedTable className="mx-auto" />
